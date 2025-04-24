@@ -2,8 +2,11 @@ import * as http from 'http';
 import { connectToMongo } from './db/mongo';
 import { handleRoutes } from './routes';
 import { IncomingMessage, ServerResponse } from 'http';
+import dotenv from 'dotenv';
 
-const PORT = 8080;
+dotenv.config();
+
+const PORT = process.env.PORT || 4000;
 
 const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader('Content-Type', 'application/json');
